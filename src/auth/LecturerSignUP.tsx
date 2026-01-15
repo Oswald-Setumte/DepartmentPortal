@@ -2,19 +2,34 @@ import { useForm } from "react-hook-form";
 import type { FormType } from "./SignUp";
 import { useNavigate } from "react-router-dom";
 import api from "../../utils/api";
+import { useState } from "react";
+import type { StatusProps } from "../../components/Status";
+import Status from "../../components/Status";
 
 export default function LecSignUP() {
   const route = useNavigate();
+
+  const [Notice, setNotice] = useState<StatusProps["details"]>({
+    status: "",
+    statusText: "",
+  });
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<FormType>();
 
   const onSubmit = (data: FormType) => {
     try {
       api.post("/auth/student/signup", data).then((res) => {
-        res.data.state == "success" && route("/signIn");
+        setNotice({
+          status: res.data.status,
+          statusText: res.statusText,
+        });
+        console.log("success", res);
+        res.data.status == "success" && route("/signIn");
+        reset();
       });
     } catch (error) {
       console.error("Error during sign up:", error);
@@ -23,6 +38,7 @@ export default function LecSignUP() {
 
   return (
     <main className="flex justify-center bg-[#f8fafc] items-center border h-screen">
+      <Status details={Notice} />
       {/* SIGN UP PAGE FOR LECTURERS */}
       <section className="flex flex-col gap-10 p-20 shadow-md">
         <article>
