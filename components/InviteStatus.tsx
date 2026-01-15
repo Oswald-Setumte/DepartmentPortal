@@ -70,7 +70,7 @@ export default function InviteStatus() {
 
       <article>
         <table className="w-full">
-          <tr className="text-center h-12">
+          <tr className="h-12">
             <th className="border border-gray-300">LEADER</th>
             <th className="border border-gray-300">EMAIL</th>
             <th className="border border-gray-300">STATUS</th>
