@@ -5,6 +5,7 @@ import { useState } from "react";
 import Status from "../../components/Status";
 import GetMyTeam from "../../components/GetMyTeam";
 import Invite from "../../components/Invite";
+import InviteStatus from "../../components/InviteStatus";
 
 type submitType = {
   name: string;
@@ -73,6 +74,7 @@ export default function Team() {
       </form>
       <GetMyTeam />
       <Invite />
+      <InviteStatus />
     </>
   );
 }
