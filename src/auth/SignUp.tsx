@@ -25,18 +25,24 @@ export default function SignUp() {
 
   const onSubmit = (data: FormType) => {
     try {
-      api.post("/auth/student/signup", data).then((response) => {
-        setNotice({
-          status: response.data.status,
-          statusText: response.statusText,
+      api
+        .post("/auth/student/signup", data)
+        .then((response) => {
+          setNotice({
+            status: response.data.status,
+            statusText: response.statusText,
+          });
+          console.log("success", response);
+          response.data.status == "success" && route("/signIn");
+          reset();
+        })
+        .catch((err) => {
+          setNotice({
+            status: err.response.data.status,
+            statusText: err.response.data.message,
+          });
         });
-        console.log("success", response);
-        reset();
-        // response.data.status == "success" && route("/signIn");
-      });
-    } catch (error) {
-      console.error("Error during sign up:", error);
-    }
+    } catch (error) {}
   };
 
   return (

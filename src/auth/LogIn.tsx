@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { type FormType } from "./signUp";
+import { type FormType } from "./SignUp";
 import { useNavigate } from "react-router-dom";
 import api from "../../utils/api";
 import { useState } from "react";
@@ -22,17 +22,23 @@ export default function LogIn() {
 
   const onSubmit = (data: FormType) => {
     try {
-      api.post("/auth/student/signin", data).then((response) => {
-        setNotice({
-          status: response.data.status,
-          statusText: response.statusText,
-        }),
-          console.log("User signed in successfully", response);
-        reset();
-      });
-    } catch (error) {
-      console.error("Error during sign up:", error);
-    }
+      api
+        .post("/auth/student/signin", data)
+        .then((response) => {
+          setNotice({
+            status: response.data.status,
+            statusText: response.statusText,
+          }),
+            route("/student/submittion");
+          reset();
+        })
+        .catch((err) => {
+          setNotice({
+            status: err.response.data.status,
+            statusText: err.response.data.message,
+          });
+        });
+    } catch (error) {}
   };
 
   return (

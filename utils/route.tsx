@@ -1,8 +1,10 @@
 import App from "../src/App";
-import SignUp from "../src/auth/signUp";
-import SignIn from "../src/auth/logIn";
+import SignUp from "../src/auth/SignUp";
+import SignIn from "../src/auth/LogIn";
 import LectureSignUp from "../src/auth/LecturerSignUP";
 import { createBrowserRouter } from "react-router-dom";
+import Submit from "../src/student/Submit";
+import Layout from "../components/Layout";
 
 export const router = createBrowserRouter([
   {
@@ -20,5 +22,13 @@ export const router = createBrowserRouter([
   {
     path: "/signin",
     element: <SignIn />,
+  },
+  {
+    path: "/student/submittion",
+    element: (
+      <Layout>
+        <Submit />,
+      </Layout>
+    ),
   },
 ]);

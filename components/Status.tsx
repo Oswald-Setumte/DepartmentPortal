@@ -1,4 +1,4 @@
-import { CheckCheck } from "lucide-react";
+import { CheckCheck, CircleX } from "lucide-react";
 
 export type StatusProps = {
   details: {
@@ -21,7 +21,14 @@ export default function Status({
       } absolute top-10 right-10 text-white p-5 w-80 rounded-md flex justify-between items-center`}
     >
       <p>{statusText}</p>
-      <CheckCheck />
+
+      {status === "success" ? (
+        <CheckCheck />
+      ) : status === "fail" ? (
+        <CircleX />
+      ) : (
+        ""
+      )}
     </main>
   );
 }
