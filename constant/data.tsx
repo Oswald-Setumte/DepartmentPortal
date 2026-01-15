@@ -1,4 +1,12 @@
-import { Home } from "lucide-react";
+import {
+  Crosshair,
+  HandHelping,
+  Home,
+  LayoutDashboard,
+  Send,
+  User,
+  Users,
+} from "lucide-react";
 
 export type SideBar = [
   {
@@ -9,23 +17,23 @@ export type SideBar = [
 
 export const sideBar = [
   {
-    link: "Home",
-    to: "/",
-    icons: <Home />,
+    link: "Dashboard",
+    to: "/student/dashbord",
+    icons: <LayoutDashboard />,
   },
   {
-    link: "SignUp",
-    to: "/signup",
-    icons: "",
+    link: "Team",
+    to: "/student/createteam",
+    icons: <Users />,
   },
   {
-    link: "SignIn",
-    to: "/signin",
-    icons: "",
+    link: "Get Team",
+    to: "/student/createteam",
+    icons: <Crosshair />,
   },
   {
     link: "Proposal Submittion",
     to: "/student/submittion",
-    icons: "",
+    icons: <Send />,
   },
 ];

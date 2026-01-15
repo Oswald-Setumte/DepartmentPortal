@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Upload } from "lucide-react";
+import Status from "../../components/Status";
 
 type SubmitType = {
   title: string;
@@ -29,6 +30,7 @@ export default function submittion() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="">
+      <Status details={status} />
       <h1 className={`text-3xl text-[#0a2540] flex justify-start font-bold`}>
         Project Proposal Submittion
       </h1>
@@ -40,7 +42,7 @@ export default function submittion() {
             placeholder="Title"
             className="p-2 outline-none border border-[#0a2540] placeholder-gray h-10 w-full"
           />
-          {errors.title && <p>Title Required</p>}
+          {errors.title && <p className="text-red-500">Title Required</p>}
         </div>
 
         <div className="w-full">
@@ -49,7 +51,9 @@ export default function submittion() {
             placeholder="Description"
             className="p-2 outline-none border border-[#0a2540] placeholder-gray  mt-3 w-full"
           />
-          {errors.description && <p>Discription Required</p>}
+          {errors.description && (
+            <p className="text-red-500">Discription Required</p>
+          )}
         </div>
 
         <div className="w-full">
@@ -64,7 +68,7 @@ export default function submittion() {
                 </option>
               );
             })}
-            {errors.option && <p>Lecturer Needed</p>}
+            {errors.option && <p className="text-red-500">Lecturer Needed</p>}
           </select>
         </div>
 
@@ -89,7 +93,9 @@ export default function submittion() {
               //   onChange={(e) => setDisplayFileName(e.target.files?.[0]?.name || "")}
             />
           </label>
-          {errors.file && <p>There's no file to upload</p>}
+          {errors.file && (
+            <p className="text-red-500">There's no file to upload</p>
+          )}
         </div>
       </section>
       <button

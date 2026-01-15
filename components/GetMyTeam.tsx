@@ -67,6 +67,7 @@ export default function () {
               onClick={() => {
                 setcloseModal(true);
               }}
+              className="cursor-pointer"
             />
           </article>
           <hr className="text-gray-400 mt-5" />

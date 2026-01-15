@@ -42,15 +42,13 @@ export default function SideBar() {
             return (
               <div
                 key={index}
-                className={`cursor-pointer bg-white h-14  rounded-[10px] flex items-center pl-3 hover:text-[#0a2540] hover:bg-gray-200`}
+                className={`cursor-pointer bg-white h-14  rounded-[10px] flex gap-2 items-center pl-3 hover:text-[#0a2540] hover:bg-gray-200`}
                 onClick={() => route(each.to)}
               >
+                <span className="text-[#0a2540]">{each.icons}</span>
                 <p className={`${acitveSideBar ? "hidden" : "block"}`}>
                   {each.link}
                 </p>
-                <span className={`${acitveSideBar ? "block" : "hidden"}`}>
-                  {each.icons}
-                </span>
               </div>
             );
           })}
@@ -58,13 +56,13 @@ export default function SideBar() {
       </div>
 
       <div
-        className={`cursor-pointer bg-white h-14  rounded-[10px] flex items-center pl-3 hover:text-[#0a2540] hover:bg-gray-200`}
+        className={`cursor-pointer text-red-500 bg-white h-14  gap-2 rounded-[10px] flex items-center pl-3 hover:text-[#0a2540] hover:bg-gray-200`}
         onClick={() => route("/")}
       >
-        <p className={`${acitveSideBar ? "hidden" : "block"}`}>Logout</p>
-        <span className={`${acitveSideBar ? "block" : "hidden"}`}>
+        <span>
           <LogOut />
         </span>
+        <p className={`${acitveSideBar ? "hidden" : "block"}`}>Logout</p>
       </div>
     </main>
   );
