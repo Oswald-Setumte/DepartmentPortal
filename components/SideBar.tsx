@@ -37,7 +37,7 @@ export default function SideBar() {
 
         {/* SIDElINKS */}
 
-        <div className=" mt-10 grid gap-3 ">
+        <div className=" mt-10 grid gap-3">
           {sideBar.map((each, index) => {
             return (
               <div

@@ -5,6 +5,7 @@ import LectureSignUp from "../src/auth/LecturerSignUP";
 import { createBrowserRouter } from "react-router-dom";
 import Submit from "../src/student/Submit";
 import Layout from "../components/Layout";
+import Team from "../src/student/Team";
 
 export const router = createBrowserRouter([
   {
@@ -28,6 +29,14 @@ export const router = createBrowserRouter([
     element: (
       <Layout>
         <Submit />,
+      </Layout>
+    ),
+  },
+  {
+    path: "/student/creatTeam",
+    element: (
+      <Layout>
+        <Team />,
       </Layout>
     ),
   },
