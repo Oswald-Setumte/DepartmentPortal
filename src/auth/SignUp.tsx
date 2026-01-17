@@ -32,8 +32,8 @@ export default function SignUp() {
             status: response.data.status,
             statusText: response.statusText,
           });
-          console.log("success", response);
-          response.data.status == "success" && route("/signIn");
+          localStorage.setItem("token", response.data.token);
+          response.data.status == "success" && route("/student/createteam");
           reset();
         })
         .catch((err) => {

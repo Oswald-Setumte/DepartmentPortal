@@ -3,9 +3,11 @@ import api from "../../utils/api";
 import type { StatusProps } from "../../components/Status";
 import { useState } from "react";
 import Status from "../../components/Status";
+
 import GetMyTeam from "../../components/GetMyTeam";
 import Invite from "../../components/Invite";
 import InviteStatus from "../../components/InviteStatus";
+// import { useAuth } from "../../utils/AuthContext";
 
 type submitType = {
   name: string;
@@ -24,11 +26,17 @@ export default function Team() {
     formState: { errors },
   } = useForm<submitType>();
 
+  const token = localStorage.getItem("token");
+
   const onsubmit = (data: submitType) => {
     console.log(data);
     try {
       api
-        .post("/teams", data)
+        .post("/teams", data, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
         .then((response) => {
           console.log(response);
           setNotice({
@@ -39,6 +47,10 @@ export default function Team() {
           reset();
         })
         .catch((error) => {
+          setNotice({
+            status: error.response.data.status,
+            statusText: error.response.data.message,
+          });
           console.log(error);
         });
     } catch (error) {}
@@ -72,7 +84,7 @@ export default function Team() {
           </button>
         </div>
       </form>
-      <GetMyTeam />
+      {/* <GetMyTeam /> */}
       <Invite />
       <InviteStatus />
     </>

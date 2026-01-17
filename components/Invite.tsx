@@ -20,14 +20,22 @@ export default function Invite() {
     formState: { errors },
   } = useForm<submit>();
 
+  const token = localStorage.getItem("token");
+
   const onsubmit = (data: submit) => {
     console.log(data);
-    api.post("/teams/invite", data).then((response) => {
-      setStatus({
-        status: response.data.status.toString(),
-        statusText: response.data.message,
+    api
+      .post("/teams/invite", data, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((response) => {
+        setStatus({
+          status: response.data.status.toString(),
+          statusText: response.data.message,
+        });
       });
-    });
   };
   return (
     <form

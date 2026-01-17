@@ -20,10 +20,16 @@ export default function LogIn() {
     formState: { errors },
   } = useForm<FormType>();
 
+  const token = localStorage.getItem("token");
+
   const onSubmit = (data: FormType) => {
     try {
       api
-        .post("/auth/student/signin", data)
+        .post("/auth/student/signin", data, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
         .then((response) => {
           setNotice({
             status: response.data.status,
