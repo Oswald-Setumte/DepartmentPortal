@@ -3,9 +3,9 @@ import SignUp from "../src/auth/SignUp";
 import SignIn from "../src/auth/LogIn";
 import LectureSignUp from "../src/auth/LecturerSignUP";
 import { createBrowserRouter } from "react-router-dom";
-import Submit from "../src/student/Submit";
 import Layout from "../components/Layout";
 import Team from "../src/student/Team";
+import Dashboard from "../src/student/Dashboard/Dashboard";
 
 export const router = createBrowserRouter([
   {
@@ -25,18 +25,18 @@ export const router = createBrowserRouter([
     element: <SignIn />,
   },
   {
-    path: "/student/submittion",
-    element: (
-      <Layout>
-        <Submit />,
-      </Layout>
-    ),
-  },
-  {
     path: "/student/createteam",
     element: (
       <Layout>
         <Team />,
+      </Layout>
+    ),
+  },
+  {
+    path: "/student/overview",
+    element: (
+      <Layout>
+        <Dashboard />
       </Layout>
     ),
   },

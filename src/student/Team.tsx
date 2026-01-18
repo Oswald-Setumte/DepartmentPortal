@@ -4,7 +4,6 @@ import type { StatusProps } from "../../components/Status";
 import { useState } from "react";
 import Status from "../../components/Status";
 
-import GetMyTeam from "../../components/GetMyTeam";
 import Invite from "../../components/Invite";
 import InviteStatus from "../../components/InviteStatus";
 // import { useAuth } from "../../utils/AuthContext";

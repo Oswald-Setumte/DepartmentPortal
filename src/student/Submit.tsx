@@ -10,7 +10,7 @@ type SubmitType = {
   option: string;
 };
 
-export default function submittion() {
+export default function Submittion() {
   const [displayFileName, setDisplayFileName] = useState();
   const [status, setStatus] = useState({
     status: "",
@@ -31,8 +31,10 @@ export default function submittion() {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="">
       <Status details={status} />
-      <h1 className={`text-3xl text-[#0a2540] flex justify-start font-bold`}>
-        Project Proposal Submittion
+      <h1
+        className={`text-5xl font-extrabold text-[#0a2540] flex justify-start`}
+      >
+        Proposal Submittion
       </h1>
 
       <section className="flex flex-col justify-center items-center gap-5 p-10">

@@ -1,12 +1,4 @@
-import {
-  Crosshair,
-  HandHelping,
-  Home,
-  LayoutDashboard,
-  Send,
-  User,
-  Users,
-} from "lucide-react";
+import { LayoutDashboard, Users } from "lucide-react";
 
 export type SideBar = [
   {
@@ -17,8 +9,8 @@ export type SideBar = [
 
 export const sideBar = [
   {
-    link: "Dashboard",
-    to: "/student/dashbord",
+    link: "Overview",
+    to: "/student/overview",
     icons: <LayoutDashboard />,
   },
   {
@@ -26,14 +18,23 @@ export const sideBar = [
     to: "/student/createteam",
     icons: <Users />,
   },
+];
+
+export const progress = [
   {
-    link: "Get Team",
-    to: "/student/createteam",
-    icons: <Crosshair />,
+    name: "Draft",
+    w: "w-[25%]",
   },
   {
-    link: "Proposal Submittion",
-    to: "/student/submittion",
-    icons: <Send />,
+    name: "Submitted",
+    w: "w-[50%]",
+  },
+  {
+    name: "Reviewed",
+    w: "w-[75%]",
+  },
+  {
+    name: "Accepted",
+    w: "w-[100%]",
   },
 ];

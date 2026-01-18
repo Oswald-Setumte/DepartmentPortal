@@ -1,4 +1,3 @@
-import { Outlet } from "react-router-dom";
 import api from "../utils/api";
 import Status, { type StatusProps } from "./Status";
 import { X } from "lucide-react";
